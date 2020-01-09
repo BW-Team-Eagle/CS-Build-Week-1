@@ -100,7 +100,7 @@ These are implemented on the test server: `https://lambda-mud-test.herokuapp.com
 
 ### Move
 * Request:  (Replace token string with logged in user's auth token)
-  * `curl -X POST -H 'Authorization: Token 6b7b9d0f33bd76e75b0a52433f268d3037e42e66' -H "Content-Type: application/json" -d '{"direction":"n"}' localhost:8000/api/adv/move/`
+  * `curl -X POST -H 'Authorization: Token cfd1a27b2e0984221654e4ef095681e37e2428a1' -H "Content-Type: application/json" -d '{"direction":"n"}' localhost:8000/api/adv/move/`
 * Response:
   * `{"name": "testuser", "title": "Foyer", "description": "Dim light filters in from the south. Dusty\npassages run north and east.", "players": [], "error_msg": ""}`
 * Pusher broadcast (stretch):
