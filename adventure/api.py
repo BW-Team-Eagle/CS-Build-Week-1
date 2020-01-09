@@ -69,4 +69,4 @@ def say(request):
 @csrf_exempt
 @api_view(["GET"])
 def get_rooms(request):
-    return JsonResponse(list(Room.objects.values().order_by('id')))
+    return JsonResponse(list(Room.objects.values().order_by('id'), safe=False))
