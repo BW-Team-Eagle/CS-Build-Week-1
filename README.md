@@ -81,6 +81,8 @@ More on Pusher below.
 
 These are implemented on the test server: `https://lambda-mud-test.herokuapp.com/`.
 
+our api `http://team-eagle-new-name-who-dis.herokuapp.com/`
+
 ### Registration
 * `curl -X POST -H "Content-Type: application/json" -d '{"username":"testuser", "password1":"testpassword", "password2":"testpassword"}' localhost:8000/api/registration/`
 * Response:
