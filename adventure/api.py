@@ -21,6 +21,8 @@ def initialize(request):
     uuid = player.uuid
     room = player.room()
     players = room.playerNames(player_id)
+    d = World(10, 10)
+    d.generate_rooms()
     return JsonResponse({'uuid': uuid, 'name':player.user.username, 'title':room.title, 'description':room.description, 'players':players}, safe=True)
 
 
@@ -72,13 +74,13 @@ def say(request):
 def get_rooms(request):
     return JsonResponse(list(Room.objects.values().order_by('id')), safe=False)
 
-@csrf_exempt
-@api_view(["GET"])
-def make_rooms(request):
-    try:
-        Room.objectcs.all().delete()
-    except:
-        pass
-    d = World(10, 10)
-    d.generate_rooms()
-    return JsonResponse({"rooms": list(Room.objects.values())},safe=False)
+# @csrf_exempt
+# @api_view(["GET"])
+# def make_rooms(request):
+#     try:
+#         Room.objectcs.all().delete()
+#     except:
+#         pass
+#     d = World(10, 10)
+#     d.generate_rooms()
+#     return JsonResponse({"rooms": list(Room.objects.values())},safe=False)
