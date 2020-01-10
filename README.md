@@ -81,7 +81,7 @@ More on Pusher below.
 
 These are implemented on the test server: `https://lambda-mud-test.herokuapp.com/`.
 
-our api `http://team-eagle-new-name-who-dis.herokuapp.com/`
+our api `http://team-eagle-new-name-who-dis.herokuapp.com`
 
 ### Registration
 * `curl -X POST -H "Content-Type: application/json" -d '{"username":"testuser", "password1":"testpassword", "password2":"testpassword"}' localhost:8000/api/registration/`
@@ -92,17 +92,17 @@ our api `http://team-eagle-new-name-who-dis.herokuapp.com/`
 * Request:
   * `curl -X POST -H "Content-Type: application/json" -d '{"username":"testuser", "password":"testpassword"}' localhost:8000/api/login/`
 * Response:
-  * `{"key":"6b7b9d0f33bd76e75b0a52433f268d3037e42e66"}`
+  * `{"key":"8d1224b985d597db93a5cd660a7662ed2f3c431a"}`
 
 ### Initialize
 * Request:  (Replace token string with logged in user's auth token)
-  * `curl -X GET -H 'Authorization: Token 6b7b9d0f33bd76e75b0a52433f268d3037e42e66' localhost:8000/api/adv/init/`
+  * `curl -X GET -H 'Authorization: Token 8d1224b985d597db93a5cd660a7662ed2f3c431a' http://team-eagle-new-name-who-dis.herokuapp.com/api/adv/init/`
 * Response:
   * `{"uuid": "c3ee7f04-5137-427e-8591-7fcf0557dd7b", "name": "testuser", "title": "Outside Cave Entrance", "description": "North of you, the cave mount beckons", "players": []}`
 
 ### Move
 * Request:  (Replace token string with logged in user's auth token)
-  * `curl -X POST -H 'Authorization: Token cfd1a27b2e0984221654e4ef095681e37e2428a1' -H "Content-Type: application/json" -d '{"direction":"n"}' localhost:8000/api/adv/move/`
+  * `curl -X POST -H 'Authorization: Token 8d1224b985d597db93a5cd660a7662ed2f3c431a' -H "Content-Type: application/json" -d '{"direction":"n"}' http://team-eagle-new-name-who-dis.herokuapp.com/api/adv/move/`
 * Response:
   * `{"name": "testuser", "title": "Foyer", "description": "Dim light filters in from the south. Dusty\npassages run north and east.", "players": [], "error_msg": ""}`
 * Pusher broadcast (stretch):
@@ -111,7 +111,7 @@ our api `http://team-eagle-new-name-who-dis.herokuapp.com/`
 
 ### Say (stretch)
 * Request:  (Replace token string with logged in user's auth token)
-  * `curl -X POST -H 'Authorization: Token 6b7b9d0f33bd76e75b0a52433f268d3037e42e66' -H "Content-Type: application/json" -d '{"message":"Hello, world!"}' localhost:8000/api/adv/say/`
+  * `curl -X POST -H 'Authorization: Token 8d1224b985d597db93a5cd660a7662ed2f3c431a' -H "Content-Type: application/json" -d '{"message":"Hello, world!"}' http://team-eagle-new-name-who-dis.herokuapp.com/api/adv/say/`
 * Pusher broadcast:
   * Players in current room receive a message: `<name> says "Hello, world!"`
 

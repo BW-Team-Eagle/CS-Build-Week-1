@@ -70,3 +70,14 @@ def say(request):
 @api_view(["GET"])
 def get_rooms(request):
     return JsonResponse(list(Room.objects.values().order_by('id')), safe=False)
+
+@csrf_exempt
+@api_view(["GET"])
+def make_rooms(request):
+    try:
+        Room.objectcs.all().delete()
+    except:
+        pass
+    d = World(10, 10)
+    d.generate_rooms()
+    return JsonResponse({"rooms": list(Room.objects.values())},safe=False)
